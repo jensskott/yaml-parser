@@ -1,0 +1,70 @@
+---
+profile: default
+
+type: PublicService
+version: 1
+
+metadata:
+  name: ball-app
+  labels:
+    - name: "datadog"
+      value: "true"
+    - name: "ecs"
+      value: "false"
+
+spec:
+
+  scaling:
+    min: 1
+    desired: 1
+    max: 2
+
+  containers:
+  - name: rest-api
+    env:
+    - name: "SERVER_PORT"
+      value: 8080
+
+    # Shared volumes on ECS cluster
+  volumes:
+  - name: "hej"
+    source: "hej"
+
+...
+---
+
+profile: production
+spec:
+
+  scaling:
+    min: 3
+    desired: 3
+    max: 5
+
+  containers:
+  - name: rest-api
+    env:
+    - name: "SERVER_PORT"
+      value: 80
+    - name: "SPRING_PROFILE"
+      value: "production"
+
+...
+---
+
+profile: develop
+spec:
+
+  scaling:
+    min: 2
+    desired: 2
+    max: 3
+
+  containers:
+  - name: rest-api
+    env:
+    - name: "SERVER_PORT"
+      value: 80
+    - name: "SPRING_PROFILE"
+      value: "develop"
+...
