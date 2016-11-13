@@ -17,6 +17,6 @@ while i < l  do
    i +=1
 end
 
-h3 = h1.merge!(h2)
+h3 = h1.deep_merge!(h2)
 h3.delete('profile')
 puts JSON.pretty_generate(h3)

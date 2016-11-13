@@ -24,6 +24,9 @@ spec:
     env:
     - name: "SERVER_PORT"
       value: 8080
+    - name: "URL"
+      value: "shit.com"
+
 
     # Shared volumes on ECS cluster
   volumes:
