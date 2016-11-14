@@ -21,6 +21,8 @@ spec:
 
   containers:
   - name: rest-api
+    image: rest-api
+    network: host
     env:
     - name: "SERVER_PORT"
       value: 8080
@@ -46,11 +48,14 @@ spec:
 
   containers:
   - name: rest-api
+    image: mardle/rest-api-test
     env:
     - name: "SERVER_PORT"
       value: 80
     - name: "SPRING_PROFILE"
       value: "production"
+    - name: "URL"
+      value: "shit.com"
 
 ...
 ---
