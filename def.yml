@@ -54,25 +54,5 @@ spec:
       value: 80
     - name: "SPRING_PROFILE"
       value: "production"
-    - name: "URL"
-      value: "shit.com"
 
-...
----
-
-profile: develop
-spec:
-
-  scaling:
-    min: 2
-    desired: 2
-    max: 3
-
-  containers:
-  - name: rest-api
-    env:
-    - name: "SERVER_PORT"
-      value: 80
-    - name: "SPRING_PROFILE"
-      value: "develop"
 ...
